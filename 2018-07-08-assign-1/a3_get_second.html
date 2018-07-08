@@ -1,0 +1,36 @@
+<!-- 
+ref: 
+https://www.w3schools.com/html/html_form_elements.asp 
+https://www.w3schools.com/js/default.asp
+https://www.w3schools.com/js/js_array_sort.asp
+-->
+
+<!DOCTYPE=html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>a3 get second</title>
+    </head>
+    <body>
+        <h1>a3 get second</h1>
+        <p>实现一个函数 getSecond(n)，给定一个数组 arr，返回该数组中第二大的数。
+        比如 arr = [1, 3, 5, 4, 2]，返回结果为 4。</p>
+        <h1>Result</h1>
+        <p id="demo"></p>
+
+
+    <script>
+    var arr = [1, 3, 5, 4, 2, 8, 9, 12, 15, 34, 11];
+    str = "Given an array [" + arr + "], ";
+
+    arr.sort(function(a, b){return b-a});
+    var m1 = arr[0]; // highest    
+    var m2 = arr[1]; // second
+    str += "the largest number is " + m1 + ", the second number is " + m2 + "."
+
+    document.getElementById("demo").innerHTML = str;
+    </script>
+
+
+    </body>
+</html>

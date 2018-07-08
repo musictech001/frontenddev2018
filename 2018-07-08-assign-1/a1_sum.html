@@ -1,0 +1,27 @@
+<!-- notes:
+ref: https://www.w3schools.com/html/html_form_elements.asp -->
+
+<!DOCTYPE=html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>a1 sum</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="a1_sum.css" />
+
+    </head>
+    <body>
+        <h1>a1 sum</h1>
+        <p>sum of two numbers</p>
+        <div>
+        <form  oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+          <input type="number" id="a" name="number a" value="123">
+          + 
+          <input type="number" id="b" name="number b" value="456"> 
+          = 
+          <output name = "x" for="a, b"></output>
+          <br><br>
+        </form> 
+        </div>
+
+    </body>
+</html>

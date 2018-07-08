@@ -1,0 +1,45 @@
+<!-- 
+ref: 
+https://www.w3schools.com/html/html_form_elements.asp 
+https://www.w3schools.com/js/default.asp
+-->
+
+<!DOCTYPE=html>
+<lang=cn>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>a2 check int</title>
+
+        <script>
+        function myFunction(p1) {
+          var a1 = parseInt(p1);
+          var str = "";
+          console.log("p1=", p1,", a1=", a1);
+          if (isNaN(a1)) {
+            str = "not an interge number!"
+            console.log(str);
+          } else if (a1 % 2 == 0) {
+            str="even.";
+          } else {
+            str="odd.";
+          }
+          console.log(str);
+          document.getElementById("demo").innerHTML = str;
+        }
+      
+        </script>
+
+    </head>
+    <body>
+        <h1>a2 check int</h1>
+        <p>用户从终端或浏览器输入一段文字，如果是合法的整数，根据奇偶性输出奇数或偶数，否则输出不是整数。</p>
+        <div>
+        <form  oninput="myFunction(a.value)">
+          <input type="text" id="a" name="text a"> is 
+          <output type="text" id="demo">
+        </form> 
+        </div>
+
+    </body>
+</html>
