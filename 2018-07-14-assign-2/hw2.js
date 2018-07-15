@@ -1,6 +1,7 @@
 // ref:
 // AJAX and react: https://reactjs.org/docs/faq-ajax.html
 
+// fetch data from a server via AJAX, save data to state, and render the data once it's ready.
 
 
 class App extends React.Component {
@@ -18,10 +19,15 @@ class App extends React.Component {
       .then(function(response) {
         return response.json();
       })
-      .then((myJson)=> {
-        this.setState({items: myJson.results})
-        this.setState({isLoaded:true});
-      });    
+      .then(
+        (myJson)=> {
+          this.setState({items: myJson.results})
+          this.setState({isLoaded:true});
+        },
+        (error) => {
+          this.setState({error});          
+        }
+      );    
   }
 
   render() {
@@ -35,7 +41,15 @@ class App extends React.Component {
       if(items.length > 0) {        
         return (
           <div>
-          <p> Fetched data </p>
+          <h3> Assignment 2: Fetch data using AJAX and React </h3>
+
+          <ul>
+          <li> fetch data from a server via AJAX </li>
+          <li> save data to component's state </li>
+          <li> render the data once it's ready </li>
+          </ul>
+
+          <h3> Results </h3>
           <ol>
           {items.map( item => (
             <li key={item.name.first+item.name.last}> 
@@ -53,6 +67,5 @@ class App extends React.Component {
     }
   }
 }
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
