@@ -10,7 +10,6 @@ class App extends React.Component {
       error: null,
       isLoaded: false,
       items: [],
-      myResults: {}
     };
   }
 
@@ -20,15 +19,8 @@ class App extends React.Component {
         return response.json();
       })
       .then((myJson)=> {
-        this.setState({isLoaded:true});
-        console.log(myJson);
-        console.log(myJson.results[0].name.first);
-
-        console.log("1, myResults: " + this.state.myResults);
-        this.setState({myResults: myJson.results});
         this.setState({items: myJson.results})
-        console.log("2, myResults: " + this.state.myResults[0].name.first);
-
+        this.setState({isLoaded:true});
       });    
   }
 
@@ -39,26 +31,18 @@ class App extends React.Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      //debugger;
-      if(items.length > 0) {
-        console.log(items[0].name.first); 
-        //debugger;
-        //return (
-        //  <div>
-        //  <p> {items[0].name.first} </p>
-        //  </div>
-        //  );
-        
+      console.log("items.length = " + items.length);
+      if(items.length > 0) {        
         return (
           <div>
           <p> Fetched data </p>
-          <ul>
+          <ol>
           {items.map( item => (
-            <li key={item.name.first}> 
+            <li key={item.name.first+item.name.last}> 
               {item.name.title} {item.name.first} {item.name.last} 
             </li>
           ))}
-          </ul>
+          </ol>
           </div>
         );
 
