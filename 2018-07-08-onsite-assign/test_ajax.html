@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+</head>
+
+<body>
+
+<div id="demo">
+<h1>The XMLHttpRequest Object</h1>
+<p id=p1></p>
+<h1> Lists </h1>
+<div id=lists></div>
+
+</div>
+
+<script>
+
+// $(function() {
+//   // Handler for .ready() called.
+//   console.log("test.");
+// });
+
+
+$(document).ready(function(){
+// put your own code here (after document is ready)
+// loadDoc();
+console.log("test2.");
+
+$.ajax({
+  url: 'https://randomuser.me/api?results=10',
+  dataType: 'json',
+  success: function(data) {
+  console.log("test 3");
+    console.log(data);
+  }
+});
+
+  console.log("test 4");
+
+
+$.get( "https://randomuser.me/api?results=10", function( data1 ) {
+  $( ".result" ).html( data1 );
+  // alert( "Load was performed." );
+  console.log(data1);
+  console.log("test 5");
+  console.log(data1.results);
+  showData(data1)
+});
+
+// to-do:
+// --> also check jquery methods: .then(), .fail(), .done()
+// --> check js array methods, and try to memorize some of them.
+
+function showData(data){
+	console.log("test 6");
+	console.log(data.results.length);
+	console.log(data.results[0].name);
+	var a0 = data.results[0].name;
+	document.getElementById("p1").innerHTML =  a0.title + " " + a0.first + " " + a0.last;
+	for (var i = 0; i < data.results.length; i++){
+		// document.getElementById("lists").innerHTML = <br>
+		var person = data.results[i].name;
+		$("#lists").append(person.title + " " + person.first + " " + person.last);
+		$("#lists").append("<br>");
+	}
+
+	console.log("test 7");
+	$("#lists").append("<div> --------- </div>");
+
+	// Frank's demo
+	// var results = data.results; // ok.
+	// const results = data.results; // ok.
+	// --> check ES6 syntax!!!
+	const {results} = data; // deconstructor
+	//const test = {...data}; // deconstruct and then construct
+
+	// --> check arrow function!
+	results.forEach(element => {
+		$("#lists").append("<div> name is: "+element.name.first+ " " + element.name.last + "</div>");
+	})
+
+	// tip:
+	// convert the html content to JSON.
+	//JSON.stringify($('#content').html());
+
+
+}
+
+
+})
+
+// function loadDoc() {
+//   var xhttp = new XMLHttpRequest();
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       document.getElementById("demo").innerHTML =
+//       this.responseText;
+//     }
+//   };
+//   xhttp.open("GET", "ajax_info.txt", true);
+//   xhttp.send();
+// }
+
+
+</script>
+
+</body>
+</html>
