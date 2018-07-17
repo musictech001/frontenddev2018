@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AddItem from './Components/AddItem'
+import ShowItem from './Components/ShowItem'
 import './App.css';
 
 class App extends Component {
@@ -36,17 +37,21 @@ class App extends Component {
     const getTitle = () => "Add Items Here"
     return (
       <div className="App">
-       <h2>Todo list</h2>
-       <hr></hr>
-       <AddItem onAdd={this.onAddItem} title={getTitle()}/>
-       <hr></hr>
-       <div>
-         {
-            this.state.list.map((item) => {
-              return <div key={item.name}>{item.name} - {item.priority}</div>
-            })
-         }
-       </div>
+         <h2>Todo list</h2>
+         <hr></hr>
+         <AddItem onAdd={this.onAddItem} title={getTitle()}/>
+         <hr></hr>
+         <div>
+           {
+              this.state.list.map((item) => {
+                return <div key={item.name}>{item.name} - {item.priority}</div>
+              })
+           }
+         </div>
+         <div>
+            <hr></hr>
+            <ShowItem list={this.state.list}/>
+         </div>
       </div>
     );
   }
