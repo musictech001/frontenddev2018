@@ -18,3 +18,12 @@ AJAX and jquery
 AJAX and React
 
 
+2018-07-21-assign-3
+Todo: implement a simple Todo List using React
+
+tic-tac-toe: implement a small game (Tic-Tac-Toe) using React
+https://reactjs.org/tutorial/tutorial.html
+
+
+mini-test
+

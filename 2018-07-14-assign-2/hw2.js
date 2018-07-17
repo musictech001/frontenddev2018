@@ -3,7 +3,8 @@
 
 // fetch data from a server via AJAX, save data to state, and render the data once it's ready.
 
-
+// a component must has its own render method.
+// first letter must be CAPITAL.
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -30,6 +31,8 @@ class App extends React.Component {
       );    
   }
 
+
+  // only one tag at the top layer.
   render() {
     const { error, isLoaded, items, myResults } = this.state;
     if (error) {
@@ -41,7 +44,7 @@ class App extends React.Component {
       if(items.length > 0) {        
         return (
           <div>
-          <h3> Assignment 2: Fetch data using AJAX and React </h3>
+          <h3> {this.props.subtitle} </h3>
 
           <ul>
           <li> fetch data from a server via AJAX </li>
@@ -68,4 +71,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App subtitle="Assignment 2: AJAX Fetch and React"/>, document.getElementById('root'));
