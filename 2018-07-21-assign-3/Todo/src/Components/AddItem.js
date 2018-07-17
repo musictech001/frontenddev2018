@@ -34,7 +34,7 @@ export default class AddItem extends Component {
     })
     return (
       <div>
-        <h3>{this.props.title}</h3>
+        <h3>{this.props.title + ' (AddItem)'}</h3>
 
           <div>
             <label>Title </label>

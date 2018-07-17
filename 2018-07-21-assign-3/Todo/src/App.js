@@ -25,15 +25,16 @@ class App extends Component {
   }
 
   onAddItem = (item) => {
-    this.setState({
-      list:[
-        ...this.state.list,
-        item,
-      ]
-    })
+    console.log("App.onAddItem()");
+    let newList = [...this.state.list, item];
+    this.setState({list:newList})
+
+    // the update of this.state.list might be not done yet, so use newList rather than state.list
+    this.refs.showitem.updateState(newList);
   }
 
   render() {
+    console.log("App.render()")
     const getTitle = () => "Add Items Here"
     return (
       <div className="App">
@@ -50,7 +51,7 @@ class App extends Component {
          </div>
          <div>
             <hr></hr>
-            <ShowItem list={this.state.list}/>
+            <ShowItem ref='showitem' list={this.state.list}/>
          </div>
       </div>
     );
