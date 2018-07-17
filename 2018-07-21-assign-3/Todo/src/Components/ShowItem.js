@@ -17,6 +17,16 @@ export default class ShowItem extends Component {
 		this.setState({list:item});
 	}
 
+	handleClick = (item) =>{
+		console.log("ShowItem.handleClick()");
+		console.log(item.target.parentElement.firstElementChild);
+		console.log(parseInt(item.target.parentElement.firstElementChild.innerHTML))
+		const index = parseInt(item.target.parentElement.firstElementChild.innerHTML);
+		let newList = this.state.list;
+		newList.splice(index, 1);
+		this.setState({list:newList});
+	}
+
 	render() {
 		console.log("ShowItem.render()");
 		let list = this.state.list;
@@ -28,10 +38,12 @@ export default class ShowItem extends Component {
 					<h3>List Items Here (ShowItem)</h3>
 					<div>
 						<ol>
-						    {list.map((item) => {
-		                		return <li key={item.name + '-li'}> 
-		                			<input type="text" key={item.name + '-name'} defaultValue={item.name}/>
-		                			<input type="text" key={item.name + '-prio'} defaultValue={item.priority}/>
+						    {list.map((item, index) => {
+		                		return <li key={item.name + '-l'} ref="item"> 
+		                			<label type='number'>{index}</label>
+		                			<input type="text" key={item.name + '-n'} defaultValue={item.name}/>
+		                			<input type="text" key={item.name + '-p'} defaultValue={item.priority}/>
+		                			<button onClick={this.handleClick}>Del</button>
 		                		</li>
 		              		})}
 	              		</ol>

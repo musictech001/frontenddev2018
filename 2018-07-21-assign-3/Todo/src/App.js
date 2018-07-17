@@ -42,13 +42,13 @@ class App extends Component {
          <hr></hr>
          <AddItem onAdd={this.onAddItem} title={getTitle()}/>
          <hr></hr>
-         <div>
+{/*         <div>
            {
               this.state.list.map((item) => {
                 return <div key={item.name}>{item.name} - {item.priority}</div>
               })
            }
-         </div>
+         </div>*/}
          <div>
             <hr></hr>
             <ShowItem ref='showitem' list={this.state.list}/>
