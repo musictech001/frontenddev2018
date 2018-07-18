@@ -24,13 +24,24 @@ class App extends Component {
     }
   }
 
+  // handle changes from AddItem
   onAddItem = (item) => {
     console.log("App.onAddItem()");
     let newList = [...this.state.list, item];
     this.setState({list:newList})
 
     // the update of this.state.list might be not done yet, so use newList rather than state.list
+    // but why do we need to update ShowItem explicitly here ?? 
     this.refs.showitem.updateState(newList);
+  }
+
+  // handles changes from ShowItem 
+  onShowItem = (newList) => {
+    console.log('App.onShowItem()');
+    this.setState({list:newList})
+
+    // apprently, we don't need to update ShowItem here.
+    //this.refs.showitem.updateState(newList);
   }
 
   render() {
@@ -42,16 +53,8 @@ class App extends Component {
          <hr></hr>
          <AddItem onAdd={this.onAddItem} title={getTitle()}/>
          <hr></hr>
-{/*         <div>
-           {
-              this.state.list.map((item) => {
-                return <div key={item.name}>{item.name} - {item.priority}</div>
-              })
-           }
-         </div>*/}
          <div>
-            <hr></hr>
-            <ShowItem ref='showitem' list={this.state.list}/>
+            <ShowItem ref='showitem' list={this.state.list} listchanged={this.onShowItem}/>
          </div>
       </div>
     );

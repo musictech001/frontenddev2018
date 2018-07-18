@@ -17,14 +17,17 @@ export default class ShowItem extends Component {
 		this.setState({list:item});
 	}
 
-	handleClick = (item) =>{
-		console.log("ShowItem.handleClick()");
-		console.log(item.target.parentElement.firstElementChild);
-		console.log(parseInt(item.target.parentElement.firstElementChild.innerHTML))
-		const index = parseInt(item.target.parentElement.firstElementChild.innerHTML);
+	handleClick = (item) => {
+		const index = parseInt(item.target.parentElement.getAttribute('index'),10);
 		let newList = this.state.list;
 		newList.splice(index, 1);
-		this.setState({list:newList});
+
+		this.props.listchanged(newList);
+
+		// since parent App will call ShowItem.updateState() explicitly, we don't need to setState here.
+		//this.setState({list:newList});
+
+		console.log("ShowItem.handleClick(): Del " + index);
 	}
 
 	render() {
@@ -39,11 +42,10 @@ export default class ShowItem extends Component {
 					<div>
 						<ol>
 						    {list.map((item, index) => {
-		                		return <li key={item.name + '-l'} ref="item"> 
-		                			<label type='number'>{index}</label>
-		                			<input type="text" key={item.name + '-n'} defaultValue={item.name}/>
-		                			<input type="text" key={item.name + '-p'} defaultValue={item.priority}/>
-		                			<button onClick={this.handleClick}>Del</button>
+		                		return <li key={item.name  + index + '-l'} index={index}>		                			
+		                			<label type="text" key={item.name + index + '-n'} value={item.name}>{item.name} --- {item.priority}   </label>
+		                			{/*<input type="text" key={item.name + index + '-p'} defaultValue={item.priority}/>*/}
+		                			<button onClick={this.handleClick}>Del</button>		                			
 		                		</li>
 		              		})}
 	              		</ol>
