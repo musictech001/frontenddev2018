@@ -27,3 +27,7 @@ https://reactjs.org/tutorial/tutorial.html
 
 mini-test
 
+2018-07-25-assign-4
+Todo: implemented in AugularJS
+
+

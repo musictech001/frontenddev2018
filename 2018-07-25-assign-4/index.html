@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<title>Todo</title>
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+	<h1> Todo List </h1>
+	<br />
+	<h3> Filtering </h3>
+	<input type="text" ng-model="name" />{{name}}
+	<ol>
+		<li ng-repeat="item in items | filter:name">{{item.name}} - {{item.priority | uppercase}}</li>
+	</ol>
+	<hr></hr>
+
+	<label>Name: </label>
+	<input type="text" ng-model="newName" />
+	<label>Priority: </label>
+	<input type="text" ng-model="newPriority" />
+	<br />
+	<button ng-click="addItem()">Add Item </button>
+
+	<script>
+		var app = angular.module('myApp', []);
+
+		// define factory (data producer?)
+		app.factory('myFactory', function()
+		{
+			var factory = {};
+
+			var items = [
+				{name:'buy tickets', priority:'High'}, 
+				{name:'shopping', priority:'Normal'}, 
+				{name:'dancing', priority:'Low'},
+				{name:'sinning', priority:'Low'}
+			];
+
+			factory.getitems = function(){
+				return items;
+			};
+
+			return factory;
+		});
+
+		// define controller
+		app.controller('myController', myController);
+
+		// inject factory to controller
+		function myController($scope, myFactory) {
+			init();
+			
+			function init() {
+				$scope.items = myFactory.getitems();
+			}
+
+			$scope.addItem = function(){
+				$scope.items.push(
+				{
+					name:$scope.newName,
+					priority:$scope.newPriority,
+				});
+			};
+
+		};
+
+
+
+	</script>
+
+</body>
+
+
+
+</html>

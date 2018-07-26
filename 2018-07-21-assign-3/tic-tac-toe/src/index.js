@@ -80,14 +80,18 @@ class Game extends React.Component {
 
   handleClick = (i)=>{
     console.log("i=" + i);
+    // the current history (all states)
     const history = this.state.history.slice(0, this.state.stepNumber+1);
+    // the current squares
     const current = history[history.length -1];
+    // new squres: make a copy of the current squares
     const squares = current.squares.slice();
     // check winner
     if (calculateWinner(squares) || squares[i]) {return;}
 
-    // how can we modify a const here??
+    // all the modification is on the new squares
     squares[i] = this.state.xIsNext? 'X' : 'O';
+    // append the new states to history, concat is a pure function.
     this.setState({
       history: history.concat([{
         squares : squares,
