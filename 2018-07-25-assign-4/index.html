@@ -13,7 +13,7 @@
 	<h3> Filtering </h3>
 	<input type="text" ng-model="name" />{{name}}
 	<ol>
-		<li ng-repeat="item in items | filter:name">{{item.name}} - {{item.priority | uppercase}}</li>
+		<li ng-repeat="(key, item) in items | filter:name">{{key}} -  {{item.name}} - {{item.priority | uppercase}} <button ng-click="delItem(key)">Delete</button> </li>
 	</ol>
 	<hr></hr>
 
@@ -36,7 +36,7 @@
 				{name:'buy tickets', priority:'High'}, 
 				{name:'shopping', priority:'Normal'}, 
 				{name:'dancing', priority:'Low'},
-				{name:'sinning', priority:'Low'}
+				{name:'singning', priority:'Low'}
 			];
 
 			factory.getitems = function(){
@@ -64,6 +64,11 @@
 					priority:$scope.newPriority,
 				});
 			};
+
+			$scope.delItem = (key)=> {
+				console.log("del item." + key);
+				$scope.items.splice(key,1);
+			}
 
 		};
 
