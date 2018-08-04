@@ -1,0 +1,62 @@
+{
+    "results": [
+        {
+            "gender": "female",
+            "name": {
+                "title": "mrs",
+                "first": "vicki",
+                "last": "cox"
+            },
+            "location": {
+                "street": "9018 oaks cross",
+                "city": "inverness",
+                "state": "gwent",
+                "postcode": "W8 7FU",
+                "coordinates": {
+                    "latitude": "13.5685",
+                    "longitude": "0.5908"
+                },
+                "timezone": {
+                    "offset": "-9:00",
+                    "description": "Alaska"
+                }
+            },
+            "email": "vicki.cox@example.com",
+            "login": {
+                "uuid": "f281e966-5879-424e-a6a6-cacfade45ad8",
+                "username": "happypeacock690",
+                "password": "penguins",
+                "salt": "HEKis3Ay",
+                "md5": "9ca339a5a7dfe921e3c9287d1a538b89",
+                "sha1": "16b1d7b65d593b3fd5fe8d5a806747dc210903a6",
+                "sha256": "06de9c129a8333b09f92c746cc6b94ac14b8c73168055c65f7a8e45fe856c2cf"
+            },
+            "dob": {
+                "date": "1984-08-24T10:43:11Z",
+                "age": 33
+            },
+            "registered": {
+                "date": "2017-09-13T15:37:14Z",
+                "age": 0
+            },
+            "phone": "016974 62282",
+            "cell": "0794-058-072",
+            "id": {
+                "name": "NINO",
+                "value": "YP 28 16 09 I"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/60.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/60.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/60.jpg"
+            },
+            "nat": "GB"
+        }
+    ],
+    "info": {
+        "seed": "03175f8d53282ef0",
+        "results": 1,
+        "page": 1,
+        "version": "1.2"
+    }
+}

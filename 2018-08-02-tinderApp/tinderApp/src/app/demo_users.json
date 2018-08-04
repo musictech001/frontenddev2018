@@ -1,0 +1,166 @@
+{
+    "results": [
+        {
+            "gender": "female",
+            "name": {
+                "title": "miss",
+                "first": "freja",
+                "last": "christensen"
+            },
+            "location": {
+                "street": "6891 finsensvej",
+                "city": "stokkemarke",
+                "state": "hovedstaden",
+                "postcode": 46181,
+                "coordinates": {
+                    "latitude": "-26.6664",
+                    "longitude": "104.7635"
+                },
+                "timezone": {
+                    "offset": "-3:30",
+                    "description": "Newfoundland"
+                }
+            },
+            "email": "freja.christensen@example.com",
+            "login": {
+                "uuid": "5124b2d3-616b-4ebf-942a-5fc9e8c767b7",
+                "username": "redgoose956",
+                "password": "brandy",
+                "salt": "eyU6R0Kq",
+                "md5": "fbf921eb7ef35661a1305cae8672b570",
+                "sha1": "06783986c5c95c587f3752259c291568a44bbeee",
+                "sha256": "734ce63983b147ba20f77230608a32cf0a0fead30156419b57ddcf605707eb82"
+            },
+            "dob": {
+                "date": "1984-12-15T16:34:06Z",
+                "age": 33
+            },
+            "registered": {
+                "date": "2012-05-06T14:51:14Z",
+                "age": 6
+            },
+            "phone": "57444744",
+            "cell": "27384496",
+            "id": {
+                "name": "CPR",
+                "value": "340438-1982"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/90.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/90.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/90.jpg"
+            },
+            "nat": "DK"
+        },
+        {
+            "gender": "female",
+            "name": {
+                "title": "ms",
+                "first": "synne",
+                "last": "fylkesnes"
+            },
+            "location": {
+                "street": "olaf schous vei 2940",
+                "city": "sande",
+                "state": "nord-trøndelag",
+                "postcode": "5575",
+                "coordinates": {
+                    "latitude": "-1.9785",
+                    "longitude": "-85.4594"
+                },
+                "timezone": {
+                    "offset": "+6:00",
+                    "description": "Almaty, Dhaka, Colombo"
+                }
+            },
+            "email": "synne.fylkesnes@example.com",
+            "login": {
+                "uuid": "b4e77ea5-7065-4d1f-93ca-e3ec0aa7b0b0",
+                "username": "silverswan152",
+                "password": "virgil",
+                "salt": "bUbPgz6L",
+                "md5": "b56bb3b659253437060194b8aa5ed9ec",
+                "sha1": "ff08c106b2a6846aa70cad68088f2d332fcc853c",
+                "sha256": "7c08f3ccc671e6f2aa61bb06192389324fdef34266a1f9f3555e6bc73c6d9d87"
+            },
+            "dob": {
+                "date": "1995-09-27T20:31:05Z",
+                "age": 22
+            },
+            "registered": {
+                "date": "2008-02-18T19:13:43Z",
+                "age": 10
+            },
+            "phone": "64839822",
+            "cell": "42468454",
+            "id": {
+                "name": "FN",
+                "value": "27099500579"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/women/4.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/women/4.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/women/4.jpg"
+            },
+            "nat": "NO"
+        },
+        {
+            "gender": "male",
+            "name": {
+                "title": "mr",
+                "first": "lennaert",
+                "last": "van zoelen"
+            },
+            "location": {
+                "street": "7506 jan van scorelstraat",
+                "city": "ommen",
+                "state": "drenthe",
+                "postcode": 84420,
+                "coordinates": {
+                    "latitude": "29.6376",
+                    "longitude": "-139.9861"
+                },
+                "timezone": {
+                    "offset": "+7:00",
+                    "description": "Bangkok, Hanoi, Jakarta"
+                }
+            },
+            "email": "lennaert.vanzoelen@example.com",
+            "login": {
+                "uuid": "6e9fbd0f-50a7-4e6e-8342-46ad686f49b7",
+                "username": "heavywolf965",
+                "password": "justus",
+                "salt": "kHngb3Ks",
+                "md5": "15827d0c15e5a55444a122dfb81ef3d1",
+                "sha1": "ae61bfdef0d996e77c202c608368af35c7e91496",
+                "sha256": "99676c18086c3d7ded1719b5af44853dea87b26cfad8380472c886a0e6fc7f1a"
+            },
+            "dob": {
+                "date": "1973-03-05T21:26:04Z",
+                "age": 45
+            },
+            "registered": {
+                "date": "2004-12-12T06:22:33Z",
+                "age": 13
+            },
+            "phone": "(206)-080-5299",
+            "cell": "(774)-689-2271",
+            "id": {
+                "name": "BSN",
+                "value": "49068392"
+            },
+            "picture": {
+                "large": "https://randomuser.me/api/portraits/men/75.jpg",
+                "medium": "https://randomuser.me/api/portraits/med/men/75.jpg",
+                "thumbnail": "https://randomuser.me/api/portraits/thumb/men/75.jpg"
+            },
+            "nat": "NL"
+        }
+    ],
+    "info": {
+        "seed": "925806dd242ae30c",
+        "results": 3,
+        "page": 1,
+        "version": "1.2"
+    }
+}

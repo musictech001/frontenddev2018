@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let user of users; index as i">
+    {{user.firstname}} <img src={{user.avatar}} alt="pic" height="50" width="50">
+    <button (click)="onClickFav(user)">like</button> <button>delete</button>
+  </li>
+</ul>
