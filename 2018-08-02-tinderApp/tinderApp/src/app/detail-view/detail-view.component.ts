@@ -9,12 +9,17 @@ import { FavoriteServiceService } from '../favorite-service.service';
 })
 export class DetailViewComponent implements OnInit {
 
-  @Input() user:User
-  @Output() public goNext: EventEmitter<any> = new EventEmitter()
+  @Input('users') users:User[];
+  @Input('index') index:number;
   
+  @Input('user') user:User;
+  
+  @Output() public goNext: EventEmitter<any> = new EventEmitter()
+
   constructor(public favoriteService: FavoriteServiceService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   onClickNext(): void{
     this.goNext.emit()
@@ -22,6 +27,10 @@ export class DetailViewComponent implements OnInit {
 
   onClickFav(user: User) : void{
     this.favoriteService.addFav(user)
+  }
+
+  setUser(index:number) {
+    this.user = this.users[index];
   }
 
 }
