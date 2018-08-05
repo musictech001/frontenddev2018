@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FavoriteServiceService } from '../favorite-service.service';
 import { User } from '../user';
+import { ListService} from '../list.service';
 
 @Component({
   selector: 'app-favorite',
@@ -11,14 +12,20 @@ export class FavoriteComponent implements OnInit {
 
   public favList: User[] = []
 
-  constructor(public favoriteService: FavoriteServiceService) { }
+  constructor(public favoriteService: FavoriteServiceService,
+              public listService: ListService
+            ) { }
+
+  // ngOnInit() {
+  //   console.log(this.favoriteService.favList)
+  //   this.favList = this.favoriteService.list
+  //   this.favoriteService.getFavList().subscribe(data => {
+  //     this.favList = data
+  //   })
+  // }
 
   ngOnInit() {
-    console.log(this.favoriteService.favList)
-    this.favList = this.favoriteService.list
-    this.favoriteService.getFavList().subscribe(data => {
-      this.favList = data
-    })
+    this.favList = this.listService.favList;
   }
 
   onRemove(fav, i): void{

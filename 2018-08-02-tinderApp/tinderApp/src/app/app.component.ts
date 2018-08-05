@@ -84,9 +84,20 @@ export class AppComponent {
     // this.updateUsers();
   }
 
+  // onClickFav(user: User, index: number) : void{
+  //   this.favoriteService.addFav(user);
+  //   this.onRemove(index);
+  // }
+
   onClickFav(user: User, index: number) : void{
-    this.favoriteService.addFav(user);
-    this.onRemove(index);
+    this.listService.toggleUserLiked(index);
+    let favList = this.listService.getUsers();
+    // set current user in list service
+    this.listService.setIndex(index);
+    console.log(favList);
+
+    // this.favoriteService.addFav(user);
+    // this.onRemove(index);
   }
 
   onDetail(i: number): void{

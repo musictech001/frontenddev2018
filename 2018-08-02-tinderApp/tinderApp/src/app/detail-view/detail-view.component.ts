@@ -41,7 +41,8 @@ export class DetailViewComponent implements OnInit {
   }
 
   onClickFav() : void{
-    this.favoriteService.addFav(this.user)
+    // this.favoriteService.addFav(this.user);
+    this.listService.toggleCurrentUserLiked();
   }
 
   public getUser() {

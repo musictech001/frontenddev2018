@@ -3,15 +3,18 @@
 import { User } from "./user";
 import { Injectable } from '@angular/core';
 import { WebServiceService } from "./web-service.service";
-import { Observable, of } from "../../node_modules/rxjs";
+import { Observable, of, ReplaySubject, Subject } from "../../node_modules/rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListService {
   public user: User;
-  public users: User[] = [];
   public index: number = 0; // index of the current user
+
+  public users: User[] = [];
+  
+  public favList: User[] = [];
   
   constructor(private webService: WebServiceService) {}
 
@@ -27,6 +30,7 @@ export class ListService {
           newUser.age = result.dob.age; 
           newUser.avatar = result.picture.medium;
           newUser.location = result.location.street + ', ' + result.location.city + ', ' +result.location.state;
+          newUser.liked = false;
           this.users.push(newUser);
         });
         console.log(this.users);
@@ -54,6 +58,7 @@ export class ListService {
   removeUser(i: number) {
     console.log("list service: remove ", i);
     this.users.splice(i, 1);
+    this.updateFavList();
   }
 
   setIndex(i: number){
@@ -63,5 +68,38 @@ export class ListService {
   getIndex(): number{
     return this.index;
   }
+
+  toggleUserLiked(i: number) {
+    this.users[i].liked = !this.users[i].liked;
+    this.updateFavList();
+  }
+
+  toggleCurrentUserLiked() {
+    this.toggleUserLiked(this.index);
+  }
+
+  updateFavList(){
+    // update favList
+    this.favList.splice(0);
+    this.users.forEach(user => {
+      if(user.liked) this.favList.push(user);
+    });
+    console.log("update favlist", this.favList);
+  }
+
+  getFavList(): User[] {
+    return this.favList;
+  }
+
+  // getFavList():  Observable<User[]> {
+  //   this.list.splice(0);
+  //   this.users.forEach(user => {
+  //     if(user.liked) this.list.push(user);
+  //   });
+  //   this.favList.next(this.list)
+  //   return this.favList
+  // }
+
+
 
 }

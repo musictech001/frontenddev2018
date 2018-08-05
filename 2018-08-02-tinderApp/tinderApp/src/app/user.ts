@@ -3,4 +3,5 @@ export class User {
     avatar: string;
     age: number;
     location: string;
+    liked: boolean;
 }
