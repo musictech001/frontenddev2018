@@ -47,7 +47,6 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { DetailViewComponent } from './detail-view/detail-view.component';
 import { FavoriteComponent } from './favorite/favorite.component';
-import { ListViewComponent } from './list-view/list-view.component';
 
 @NgModule({
   exports: [
@@ -96,8 +95,7 @@ export class DemoMaterialModule {}
   declarations: [
     AppComponent,
     DetailViewComponent,
-    FavoriteComponent,
-    ListViewComponent
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,

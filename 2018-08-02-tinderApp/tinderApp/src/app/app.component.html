@@ -31,24 +31,8 @@
     </ol> -->
 
 
-    <!-- <div *ngIf="!hideDetail"> -->
-      <!-- <h1> detail </h1>
-      <app-detail-view [user]="user" (goNext)="next()"></app-detail-view> -->
-    <!-- </div> -->
-
     <div *ngIf="showListView">
       <h1>  List of Users </h1>
-        <!-- <ul>
-            <li *ngFor="let user of users; index as i">
-                <a routerLink="/detail/{{i}}" (click)="onDetail(i)">id = {{i}} (click for detail)
-                  <label >{{user.firstname}}</label> 
-                  <img src={{user.avatar}} alt="pic" height="50" width="50">
-                </a>
-                <button (click)="onClickFav(user, i)">like</button> 
-                <button (click)="onRemove(i)">delete</button>
-            </li>
-        </ul> -->
-
 
         <mat-list>
           <mat-list-item *ngFor="let user of users; index as i">
@@ -68,7 +52,7 @@
               <button mat-fab 
                 color="warn" 
                 (click)="onRemove(i)">
-                delete
+                remove
               </button>
           </mat-list-item>
         </mat-list>
