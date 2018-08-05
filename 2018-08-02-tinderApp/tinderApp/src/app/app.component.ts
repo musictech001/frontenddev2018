@@ -3,6 +3,7 @@ import { WebServiceService } from "./web-service.service";
 import { User } from "./user";
 import { FavoriteServiceService } from './favorite-service.service';
 import { ListService} from './list.service';
+import { DetailViewComponent} from './detail-view/detail-view.component';
 
 @Component({
   selector: "app-root",

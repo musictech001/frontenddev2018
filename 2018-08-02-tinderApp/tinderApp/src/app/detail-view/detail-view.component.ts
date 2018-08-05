@@ -23,6 +23,7 @@ export class DetailViewComponent implements OnInit {
               private route: ActivatedRoute,
               private location: Location
               ) {
+                this.user = this.listService.getUser();
                 console.log("detail-view.constructor()");                
               }
 
@@ -43,9 +44,8 @@ export class DetailViewComponent implements OnInit {
     this.favoriteService.addFav(this.user)
   }
 
-  getUser() {
+  public getUser() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.listService.setIndex(id);
     this.user = this.listService.getUser();
     console.log("detail-view.getUser(): id=", id);
   }

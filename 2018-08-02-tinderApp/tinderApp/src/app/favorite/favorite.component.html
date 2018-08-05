@@ -1,5 +1,15 @@
 <mat-list>
   <mat-list-item *ngFor="let fav of favList; index as i">
-    {{fav.firstname}} <img src={{fav.avatar}} alt="pic" height="50" width="50"> <button (click)="onRemove(fav, i)">unlike</button>
+    {{fav.firstname}} <img src={{fav.avatar}} alt="pic" height="50" width="50"> 
+    <button (click)="onRemove(fav, i)">unlike</button>
   </mat-list-item>
+
+  <!-- <mat-list-item *ngFor="let fav of favList; index as i">
+      <a (click)="onDetail(i)" routerLink="/detail/{{i}}">
+        <label >{{fav.firstname | uppercase}}</label> 
+        <img src={{fav.avatar}} alt="pic" height="50" width="50">
+      </a>
+      <button (click)="onRemove(fav, i)">unlike</button>
+</mat-list-item> -->
+
 </mat-list>

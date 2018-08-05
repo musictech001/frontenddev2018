@@ -22,13 +22,13 @@
     
     <router-outlet></router-outlet>
 
-    <h1> routed links</h1>
+    <!-- <h1> routed links</h1>
     <ol>
-        <li> <a routerLink="/">root</a></li>
-        <li> <a routerLink="/favorite">Favorite</a></li>
-        <li> <a routerLink="/detail">detail</a></li>
-        <li> <a routerLink="/detail/{{userId}}">detail id = {{userId}}</a></li>
-    </ol>
+        <li> <a routerLink="/" (click)="loadList()">root</a></li>
+        <li> <a routerLink="/favorite" (click)="loadFavorite()">Favorite</a></li>
+        <li> <a routerLink="/detail" (click)="loadDetail()">detail</a></li>
+        <li> <a routerLink="/detail/{{userId}}">detail userId = {{userId}}</a></li>
+    </ol> -->
 
 
     <!-- <div *ngIf="!hideDetail"> -->
@@ -37,10 +37,10 @@
     <!-- </div> -->
 
     <div *ngIf="showListView">
-      <h1> app list </h1>
+      <h1>  List of Users </h1>
         <ul>
             <li *ngFor="let user of users; index as i">
-                <a (click)="onDetail(i)" routerLink="/detail/{{i}}">detail (id = {{i}})
+                <a (click)="onDetail(i)" routerLink="/detail/{{i}}">id = {{i}} (click for detail)
                   <label >{{user.firstname}}</label> 
                   <img src={{user.avatar}} alt="pic" height="50" width="50">
                 </a>
@@ -48,13 +48,15 @@
                 <button (click)="onRemove(i)">delete</button>
             </li>
         </ul>
-  </div>
+
+        <hr />
+        <!-- <app-list-view [users]="users"></app-list-view> -->
+        <button (click)="onMore()">More</button>
+        <hr />
+    
+    </div>
 
 
-    <hr />
-    <!-- <app-list-view [users]="users"></app-list-view> -->
-    <button (click)="onMore()">More</button>
-    <hr />
 
 </div>
 
