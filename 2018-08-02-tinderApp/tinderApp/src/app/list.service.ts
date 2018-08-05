@@ -9,18 +9,18 @@ import { Observable, of, ReplaySubject, Subject } from "../../node_modules/rxjs"
   providedIn: 'root'
 })
 export class ListService {
-  public user: User;
+  // public user: User;
   public index: number = 0; // index of the current user
 
   public users: User[] = [];
   
+  // this might be redundant? we can get the favorite users via "liked" attribute.
   public favList: User[] = [];
   
   constructor(private webService: WebServiceService) {}
 
   // load users from server
   loadUsers(n:number): Observable<User[]>{
-    console.log("list service: loadUsers, n=", n);
     this.webService.getUsers(n).subscribe(data => {
       if (data.results) {        
         // console.log(data.results);
@@ -33,7 +33,7 @@ export class ListService {
           newUser.liked = false;
           this.users.push(newUser);
         });
-        console.log(this.users);
+        console.log("load users: ",this.users);
       }
     });
     return of(this.users);
@@ -43,6 +43,7 @@ export class ListService {
     return this.users;
   }
 
+  // get current user
   getUser() {
     // Todo: add boundary checking.
     return this.users[this.index];
@@ -51,16 +52,19 @@ export class ListService {
   getNextUser() {
     this.index ++;
     if (this.index >= this.users.length) this.index = 0;
-    console.log("list service: index = ", this.index);
     return this.users[this.index];
   }
 
   removeUser(i: number) {
-    console.log("list service: remove ", i);
-    this.users.splice(i, 1);
-    this.updateFavList();
+    if (i > 0 && i < this.users.length) {
+      this.users.splice(i, 1);
+      this.updateFavList();  
+    } else {
+      console.log("error: invalid index!");
+    }
   }
 
+  // set index of current user
   setIndex(i: number){
     this.index = (i >= this.users.length || i < 0) ? 0: i;
   }
@@ -70,8 +74,12 @@ export class ListService {
   }
 
   toggleUserLiked(i: number) {
-    this.users[i].liked = !this.users[i].liked;
-    this.updateFavList();
+    if (i > 0 && i < this.users.length) {
+      this.users[i].liked = !this.users[i].liked;
+      this.updateFavList();
+    } else {
+      console.log("error: invalid index!");
+    }
   }
 
   toggleCurrentUserLiked() {
@@ -79,27 +87,14 @@ export class ListService {
   }
 
   updateFavList(){
-    // update favList
     this.favList.splice(0);
     this.users.forEach(user => {
       if(user.liked) this.favList.push(user);
     });
-    console.log("update favlist", this.favList);
   }
 
   getFavList(): User[] {
     return this.favList;
   }
-
-  // getFavList():  Observable<User[]> {
-  //   this.list.splice(0);
-  //   this.users.forEach(user => {
-  //     if(user.liked) this.list.push(user);
-  //   });
-  //   this.favList.next(this.list)
-  //   return this.favList
-  // }
-
-
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WebServiceService } from "../web-service.service";
 import { User } from "../user";
-import { FavoriteServiceService } from '../favorite-service.service';
+// import { FavoriteServiceService } from '../favorite-service.service';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class ListViewComponent implements OnInit {
   @Input() public users: User[];
 
   constructor(private webService: WebServiceService, 
-    public favoriteService: FavoriteServiceService) {
+    ) {
    }
 
   ngOnInit() {
@@ -41,9 +41,10 @@ export class ListViewComponent implements OnInit {
   // onMore(): void {
   //   this.loadUsers(5);
   // }
-  
+
   onClickFav(user: User) : void{
-    this.favoriteService.addFav(user)
+    // this.favoriteService.addFav(user)
+    
   }
 
 }

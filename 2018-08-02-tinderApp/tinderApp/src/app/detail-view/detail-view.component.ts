@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../user';
-import { FavoriteServiceService } from '../favorite-service.service';
 import { ListService} from '../list.service';
 
 // parameterized url
@@ -18,8 +17,7 @@ export class DetailViewComponent implements OnInit {
   
   @Output() public goNext: EventEmitter<any> = new EventEmitter()
 
-  constructor(public favoriteService: FavoriteServiceService,
-              private listService: ListService,
+  constructor(private listService: ListService,
               private route: ActivatedRoute,
               private location: Location
               ) {
@@ -41,7 +39,6 @@ export class DetailViewComponent implements OnInit {
   }
 
   onClickFav() : void{
-    // this.favoriteService.addFav(this.user);
     this.listService.toggleCurrentUserLiked();
   }
 

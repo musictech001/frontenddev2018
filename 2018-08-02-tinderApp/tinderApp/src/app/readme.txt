@@ -1,3 +1,10 @@
+v 2018-08-05-1102:
+- clean up:
+  remove favorite-service.service
+- study button style
+- study router and parameterized url
+
+
 v 2018-08-05-0300:
 Done:
 - [solved] click on avatar in favorite view should bring up detail view.
@@ -21,8 +28,8 @@ v 2018-08-04-2106:
   But it's fine in detail view with <next> button.
   check app-routing module?
 - In detail view, url doesn't update when <next> is clicked.
-- In detail view, the <Like> button should toggle style (color) when clicked.
-- In favorite view, can not go into detail, because favorite users are in a separated list.
+- [solved] In detail view, the <Like> button should toggle style (color) when clicked.
+- [solved] In favorite view, can not go into detail, because favorite users are in a separated list.
   The data structure need to be re-designed. 
   Perhaps use one centralized array in list service, and add "favorite" attribute for each user?
 - UI style is ugly!
