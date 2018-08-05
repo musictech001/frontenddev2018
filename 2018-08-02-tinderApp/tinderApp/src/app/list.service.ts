@@ -39,14 +39,29 @@ export class ListService {
     return this.users;
   }
 
-  getUser(i:number) {
+  getUser() {
     // Todo: add boundary checking.
-    return this.users[i];
+    return this.users[this.index];
+  }
+
+  getNextUser() {
+    this.index ++;
+    if (this.index >= this.users.length) this.index = 0;
+    console.log("list service: index = ", this.index);
+    return this.users[this.index];
   }
 
   removeUser(i: number) {
     console.log("list service: remove ", i);
     this.users.splice(i, 1);
+  }
+
+  setIndex(i: number){
+    this.index = (i >= this.users.length || i < 0) ? 0: i;
+  }
+
+  getIndex(): number{
+    return this.index;
   }
 
 }

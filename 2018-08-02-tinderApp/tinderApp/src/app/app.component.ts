@@ -20,7 +20,7 @@ export class AppComponent {
   public users: User[] = [];
   public hideDetail: Boolean = false;
   public showListView: Boolean = true;
-  public currentUserIndex: number = 0; // index of the current user
+  public userId: number = 2; // index of the current user
   // public index: number;
 
   ngOnInit() {
@@ -43,28 +43,11 @@ export class AppComponent {
   }
 
   loadUsers(n:number): void{
-    // this.webService.getUsers(n).subscribe(data => {
-    //   if (data.results) {        
-    //     // console.log(data.results);
-    //     data.results.forEach(result => {
-    //       let newUser = new User();
-    //       newUser.firstname = result.name.first;
-    //       newUser.age = result.dob.age; 
-    //       newUser.avatar = result.picture.medium;
-    //       newUser.location = result.location.street + ', ' + result.location.city + ', ' +result.location.state;
-    //       this.users.push(newUser);
-    //     });
-    //     console.log(this.users);
-    //   }
-    // });
-
-    // load date from list service
+    // load users data from list service
     this.listService.loadUsers(n).subscribe(users=>this.users=users);
   } 
 
-  // updateUsers() {
-  //   this.users = this.listService.getUsers();
-  // }
+
 
 
   next(): void {
@@ -88,7 +71,7 @@ export class AppComponent {
     this.showListView = true;
   }
 
-  
+
   onMore(): void {
     this.loadUsers(5);
   }
@@ -106,9 +89,11 @@ export class AppComponent {
   }
 
   onDetail(i: number): void{
-    console.log("onDetail() ", i);
-    this.user = this.users[i];
-    this.hideDetail = false;
+    this.userId = i;
+    // this.user = this.users[i];
+    // this.hideDetail = false;
+    this.listService.setIndex(i);
+    console.log("onDetail(), userId= ", i);
   }
 
 

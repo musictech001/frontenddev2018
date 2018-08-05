@@ -8,6 +8,7 @@ import { FavoriteComponent } from "./favorite/favorite.component";
 
 const routes: Routes = [
   { path: 'detail', component: DetailViewComponent },
+  { path: 'detail/:id', component: DetailViewComponent },
   { path: 'favorite', component: FavoriteComponent },
   { path: 'list', component: ListViewComponent},
 ];
