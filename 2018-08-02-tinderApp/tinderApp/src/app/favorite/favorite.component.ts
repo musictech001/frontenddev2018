@@ -11,6 +11,7 @@ import { ListService} from '../list.service';
 export class FavoriteComponent implements OnInit {
 
   public favList: User[] = []
+  public list: User[] = []
 
   constructor(public favoriteService: FavoriteServiceService,
               public listService: ListService
@@ -26,11 +27,20 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() {
     this.favList = this.listService.favList;
+    this.list = this.listService.users;
   }
 
-  onRemove(fav, i): void{
-    console.log(fav, i);
-    this.favList.splice(i,1);
+  // onRemove(fav, i): void{
+  //   console.log(fav, i);
+  //   this.favList.splice(i,1);
+  // }
+
+  onUnlike(i) : void{
+    this.listService.toggleUserLiked(i);
+  }
+
+  onDetail(i: number): void{
+    this.listService.setIndex(i);
   }
 
 }

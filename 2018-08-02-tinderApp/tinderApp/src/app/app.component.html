@@ -59,8 +59,17 @@
                 (click)="onDetail(i)"
               >
               <p matLine> {{ user.firstname }} </p>
-            <button mat-fab color="accent" (click)="onClickFav(user, i)">like</button> 
-              <button mat-fab color="warn" (click)="onRemove(i)">delete</button>
+              <button mat-fab 
+                disabled="{{user.liked}}"
+                (click)="onClickFav(user, i)"              
+                 >                 
+                <span>like</span>
+              </button> 
+              <button mat-fab 
+                color="warn" 
+                (click)="onRemove(i)">
+                delete
+              </button>
           </mat-list-item>
         </mat-list>
 

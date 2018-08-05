@@ -1,9 +1,13 @@
+v 2018-08-05-0300:
+Done:
+- [solved] click on avatar in favorite view should bring up detail view.
+
 v 2018-08-05-0151:
 Done:
 - reimplemented favList, now use a centralized user list provided by listService.
 
 Unsolved / Todo:
-- click on avatar in favorite view should bring up detail view.
+- [solved] click on avatar in favorite view should bring up detail view.
   idea: use the liked attribute to set list item hidden, rather than create a separated favList?
 - <like> button in list view and favorite view should change color when toggled.
 - in detail view, let url/id sync with current user?

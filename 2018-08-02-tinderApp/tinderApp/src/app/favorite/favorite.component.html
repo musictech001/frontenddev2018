@@ -3,7 +3,7 @@
 <ng-template #id2> <h1> No favorite yet ... </h1> </ng-template>
 
 
-<mat-list>
+<!-- <mat-list>
     <mat-list-item *ngFor="let fav of favList; index as i">
         <img matListAvatar 
           src={{fav.avatar}} 
@@ -11,5 +11,19 @@
         >
         <p matLine> {{ fav.firstname }} </p>
         <button mat-fab color="warn" (click)="onRemove(fav, i)">unlike</button>
+    </mat-list-item>
+</mat-list> -->
+
+
+<mat-list *ngFor="let user of list; index as i">
+    <mat-list-item *ngIf="user.liked">
+        <img matListAvatar 
+          src={{user.avatar}} 
+          alt="pic" 
+          routerLink="/detail/{{i}}" 
+          (click)="onDetail(i)"
+        >
+        <p matLine> {{ user.firstname }} </p>
+        <button mat-fab color="warn" (click)="onUnlike(i)">unlike</button>
     </mat-list-item>
 </mat-list>

@@ -10,7 +10,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="onClickFav()">Like</button>
+        <button mat-button disabled="{{user.liked}}" (click)="onClickFav()">Like</button>
         <button mat-button (click)="onClickNext()" >Next</button>
       </mat-card-actions>
     </mat-card>

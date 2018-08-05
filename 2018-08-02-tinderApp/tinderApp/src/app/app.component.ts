@@ -5,6 +5,8 @@ import { FavoriteServiceService } from './favorite-service.service';
 import { ListService} from './list.service';
 import { DetailViewComponent} from './detail-view/detail-view.component';
 
+import {MatButtonModule} from '@angular/material/button';
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
