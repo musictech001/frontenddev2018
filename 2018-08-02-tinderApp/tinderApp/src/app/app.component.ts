@@ -25,23 +25,23 @@ export class AppComponent {
   // public index: number;
 
   ngOnInit() {
-   this.loadUser();
+  //  this.loadUser();
    this.loadUsers(5);
   }
 
-  loadUser(): void{
-    this.webService.getUser().subscribe(data => {
-      if (data.results) {
-        const result = data.results[0];
-        const newUser = new User();
-        newUser.firstname = result.name.first;
-        (newUser.age = result.dob.age), (newUser.avatar = result.picture.medium);
-        newUser.location = result.location.street + ', ' + result.location.city + ', ' +result.location.state
-        this.user = newUser;
-      }
-    });
+  // loadUser(): void{
+  //   this.webService.getUser().subscribe(data => {
+  //     if (data.results) {
+  //       const result = data.results[0];
+  //       const newUser = new User();
+  //       newUser.firstname = result.name.first;
+  //       (newUser.age = result.dob.age), (newUser.avatar = result.picture.medium);
+  //       newUser.location = result.location.street + ', ' + result.location.city + ', ' +result.location.state
+  //       this.user = newUser;
+  //     }
+  //   });
 
-  }
+  // }
 
   loadUsers(n:number): void{
     // load users data from list service
@@ -51,9 +51,9 @@ export class AppComponent {
 
 
 
-  next(): void {
-    this.loadUser()
-  }
+  // next(): void {
+  //   this.loadUser()
+  // }
 
   loadFavorite(): void {
     this.hideDetail = true;
@@ -91,10 +91,9 @@ export class AppComponent {
 
   onDetail(i: number): void{
     this.userId = i;
-    // this.user = this.users[i];
-    // this.hideDetail = false;
     this.listService.setIndex(i);
     console.log("onDetail(), userId= ", i);
+    this.loadDetail();
   }
 
 

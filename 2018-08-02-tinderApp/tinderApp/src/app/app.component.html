@@ -16,7 +16,7 @@
                 <span>List</span>
               </button>
             </mat-menu>
-            <h2>{{title}} test</h2>
+            <h2>{{title}}</h2>
       </div>
     </mat-toolbar>
     
@@ -38,21 +38,34 @@
 
     <div *ngIf="showListView">
       <h1>  List of Users </h1>
-        <ul>
+        <!-- <ul>
             <li *ngFor="let user of users; index as i">
-                <a (click)="onDetail(i)" routerLink="/detail/{{i}}">id = {{i}} (click for detail)
+                <a routerLink="/detail/{{i}}" (click)="onDetail(i)">id = {{i}} (click for detail)
                   <label >{{user.firstname}}</label> 
                   <img src={{user.avatar}} alt="pic" height="50" width="50">
                 </a>
                 <button (click)="onClickFav(user, i)">like</button> 
                 <button (click)="onRemove(i)">delete</button>
             </li>
-        </ul>
+        </ul> -->
 
-        <hr />
-        <!-- <app-list-view [users]="users"></app-list-view> -->
-        <button (click)="onMore()">More</button>
-        <hr />
+
+        <mat-list>
+          <mat-list-item *ngFor="let user of users; index as i">
+              <img matListAvatar 
+                src={{user.avatar}} 
+                alt="pic" 
+                routerLink="/detail/{{i}}" 
+                (click)="onDetail(i)"
+              >
+              <p matLine> {{ user.firstname }} </p>
+            <button mat-fab color="accent" (click)="onClickFav(user, i)">like</button> 
+              <button mat-fab color="warn" (click)="onRemove(i)">delete</button>
+          </mat-list-item>
+        </mat-list>
+
+        <hr matLine />
+        <button mat-flat-button color="primary" (click)="onMore()">Load More</button>
     
     </div>
 
